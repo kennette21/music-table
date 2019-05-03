@@ -91,14 +91,19 @@ def save_sounds():
 if __name__ == '__main__':
     mixer.init()
 
+    cap = cv2.VideoCapture(1)
+
     SOUNDS = save_sounds()
 
     try:
         while True:
             empty_list = []
             CONT_PLAYING = empty_list
-            cur_img = requests.get("http://192.168.0.12:8080/shot.jpg")
-            pl_img = Image.open(StringIO(cur_img.content))
+            # cur_img = requests.get("http://192.168.0.12:8080/shot.jpg")
+            # pl_img = Image.open(StringIO(cur_img.content))
+            ret, frame = cap.read()
+
+
             # decObjs = decode(pl_img)
             detect_loop(pl_img)
 
