@@ -47,10 +47,8 @@ def stop_loop(loop):
     try:
         CUR_PLAYING.remove(loop)
         toggle_mute(TRACK_DICT[loop_type][index])
-        # we need to load all the tracks, then map them so we can toggle mute
-        # mixer.Channel(TYPE_CANNEL_MAPPER[loop_type]).stop()
     except ValueError:
-        print("SHIT!! REMOVING ALREADY REMOVED SONG")
+        print("whoops!! REMOVING ALREADY REMOVED SONG")
         
 def toggle_mute(track):
     if RPR_SetMediaTrackInfo_Value(track, 'B_MUTE'):   
